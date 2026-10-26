@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@400;700&family=EB+Garamond:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   إخفاء السكرول بار تماماً من كل المتصفحات
+   عشان الورد يلزق في الشاشة للآخر
+========================================= */
+/* للكروم وسفاري */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* للفايرفوكس وإيدج */
+html, body, .overflow-y-auto {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   VINYL & MUSIC PLAYER STYLES
+========================================= */
+@keyframes spinVinyl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl-spin {
+  animation: spinVinyl 10s linear infinite;
+}
+
+.vinyl-paused {
+  animation-play-state: paused !important;
+}
+
+.music-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+.music-range:focus {
+  outline: none;
+}
+
+.music-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: #381a2b;
+}
+
+.music-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #965b79;
+  border: 1.5px solid #f3e3ce;
+  margin-top: -5px;
+  box-shadow: 0 0 8px rgba(150, 91, 121, 0.8);
+  transition: transform 0.15s ease;
+}
+
+.music-range::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: #aa6d8d;
+}
+
+.music-range::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: #381a2b;
+}
+
+.music-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #f3e3ce;
+  border-radius: 50%;
+  background: #965b79;
+  box-shadow: 0 0 8px rgba(150, 91, 121, 0.8);
+  transition: transform 0.15s ease;
+}
+
+.music-range::-moz-range-thumb:hover {
+  transform: scale(1.25);
+  background: #aa6d8d;
+}
